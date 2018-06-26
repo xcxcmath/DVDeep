@@ -23,4 +23,4 @@
 
 #endif //DVDEEP_COMMON_H
 
-typedef unsigned int uint;
+using uint = unsigned int;
