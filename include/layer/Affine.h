@@ -8,6 +8,8 @@
 namespace dvdeep {
     namespace layer {
         class Affine : public Layer {
+            Affine() = default;
+
             Affine(uint input, uint output);
 
             ~Affine() override = default;

@@ -5,7 +5,7 @@
 #include "../../include/layer/Affine.h"
 
 dvdeep::layer::Affine::Affine(uint input, uint output) {
-
+    m_param[ParamKey::weight] = dvdeep::math::Matrix(input, output);
 }
 
 dvdeep::layer::Matrix dvdeep::layer::Affine::predict(const dvdeep::layer::Matrix &x) {
