@@ -5,10 +5,8 @@
 #ifndef NEURAL_NETWORK_MATRIX_H
 #define NEURAL_NETWORK_MATRIX_H
 
-#include <iostream>
-#include <functional>
+#include "../Common.h"
 
-typedef unsigned int uint;
 namespace dvdeep {
     namespace math {
 

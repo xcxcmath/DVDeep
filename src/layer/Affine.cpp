@@ -4,6 +4,10 @@
 
 #include "../../include/layer/Affine.h"
 
+dvdeep::layer::Affine::Affine(uint input, uint output) {
+
+}
+
 dvdeep::layer::Matrix dvdeep::layer::Affine::predict(const dvdeep::layer::Matrix &x) {
     return m_param.at(ParamKey::weight).transpose() * x + m_param.at(ParamKey::bias);
 }
