@@ -27,7 +27,7 @@ dvdeep::layer::Affine::Affine(uint input, uint output) {
         for(uint j = 0; j < output; j++)
             m_param[ParamKey::weight](i, j) /= s;
 
-    m_param[ParamKey::bias] = dvdeep::math::Matrix(1, output);
+    m_param[ParamKey::bias] = dvdeep::math::Matrix(output, 1);
 }
 
 dvdeep::layer::Matrix dvdeep::layer::Affine::predict(const dvdeep::layer::Matrix &x) {
