@@ -38,6 +38,10 @@ namespace dvdeep {
 
             bool is_multipliable(Matrix A) { return col == A.row; }
 
+            const uint get_row() const { return row; }
+
+            const uint get_col() const { return col; }
+
             Matrix &operator=(const Matrix &A);
 
             Matrix &operator=(Matrix &&A) noexcept;
@@ -107,6 +111,17 @@ namespace dvdeep {
 
                 for(uint i = 0;i < row * col; i++)
                     A.mat[i] = func(mat[i]);
+
+                return A;
+            }
+
+            const Matrix transpose() const
+            {
+                Matrix A = Matrix(col, row);
+
+                for(uint i = 0; i < row; i++)
+                    for(uint j = 0; j < col; j++)
+                        A.mat[j * row + i] = mat[i * col + j];
 
                 return A;
             }
