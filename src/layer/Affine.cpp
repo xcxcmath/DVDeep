@@ -6,6 +6,28 @@
 
 dvdeep::layer::Affine::Affine(uint input, uint output) {
     m_param[ParamKey::weight] = dvdeep::math::Matrix(input, output);
+    double sum = 0;
+    std::random_device rd;
+    std::mt19937_64 gen(rd());
+    std::uniform_real_distribution<> dis(-1, 1);
+
+    for(uint i = 0; i < input; i++)
+        for(uint j = 0; j < output; j++)
+            sum += (m_param[ParamKey::weight](i, j) = dis(gen));
+
+    double mean = sum / (input * output);
+    double var = 0;
+    if(mean != 0)
+        for(uint i = 0; i < input; i++)
+            for(uint j = 0; j < output; j++)
+                var += (m_param[ParamKey::weight](i, j) = (m_param[ParamKey::weight](i, j) - mean));
+
+    double s = std::sqrt(var);
+    for(uint i = 0; i < input; i++)
+        for(uint j = 0; j < output; j++)
+            m_param[ParamKey::weight](i, j) /= s;
+
+    m_param[ParamKey::bias] = dvdeep::math::Matrix(1, output);
 }
 
 dvdeep::layer::Matrix dvdeep::layer::Affine::predict(const dvdeep::layer::Matrix &x) {

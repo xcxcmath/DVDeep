@@ -20,7 +20,7 @@
 #include <string>
 
 #include <vector>
-    
+
 using uint = unsigned int;
 
 #endif //DVDEEP_COMMON_H
