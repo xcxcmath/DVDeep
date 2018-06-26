@@ -34,14 +34,20 @@ set(layer_headers include/layer/Layer.h
 set(network_sources src/network/FFN.cpp)
 set(network_headers include/network/FFN.h)
 
+#optimizer
+set(optimizer_sources src/optimizer/Optimizer.cpp)
+set(optimizer_headers include/optimizer/Optimizer.h)
+
 #summarize
 set(HEADER ${common_headers}
         ${math_headers}
         ${layer_headers}
-        ${network_headers})
+        ${network_headers}
+        ${optimizer_headers})
 set(SOURCE ${math_sources}
         ${layer_sources}
-        ${network_sources})
+        ${network_sources}
+        ${optimizer_sources})
 set(SRC ${SOURCE} ${HEADER})
 
 #make executable and static library
