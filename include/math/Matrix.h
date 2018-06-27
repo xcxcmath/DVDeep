@@ -128,7 +128,7 @@ namespace dvdeep {
                 for (uint i = 0; i < matrix.row; i++) {
                     for (uint j = 0; j < matrix.col; j++)
                         os << matrix(i, j) << ' ';
-                    std::cout << '\n';
+                    os << '\n';
                 }
                 return os;
             }

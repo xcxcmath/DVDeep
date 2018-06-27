@@ -8,20 +8,11 @@
 namespace dvdeep {
     namespace layer {
         class Affine : public Layer {
-            Affine() = default;
-
             Affine(uint input, uint output);
-
-            ~Affine() override = default;
 
             Matrix predict(const Matrix &x) override;
 
-            Matrix forward(const Matrix &x) override;
-
             BackOutput backward(const Matrix &delta) override;
-
-            double getLoss(const Matrix &answer) const override;
-
         };
     }
 }
