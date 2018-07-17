@@ -8,6 +8,7 @@
 namespace dvdeep {
     namespace layer {
         class Affine : public Layer {
+        public:
             Affine(uint input, uint output);
 
             Matrix predict(const Matrix &x) override;
